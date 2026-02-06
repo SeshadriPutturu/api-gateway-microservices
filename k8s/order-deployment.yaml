@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: order-service
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: order-service
@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
         - name: order-service
-          image: seshadri/order-service:latest
+          image: order-service:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8082
